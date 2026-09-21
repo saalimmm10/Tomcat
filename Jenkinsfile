@@ -1,9 +1,16 @@
 pipeline {
     agent any
 
+    tools {
+        jdk 'JDK21'
+        maven 'Maven'
+    }
+
     stages {
         stage('Build') {
             steps {
+                bat 'java --version'
+                bat 'mvn --version'
                 bat 'mvn clean package'
             }
         }
